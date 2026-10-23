@@ -26,8 +26,8 @@ const TRANSLATIONS = {
     hallEvent: "حفل الزفاف",
     hallName: "قاعة الداون تاون",
     hallTime: "الساعة ٨:٠٠ مساءً",
-    churchLocationTitle: "مكان الإكليل",
-    hallLocationTitle: "مكان حفل الزفاف",
+    churchLocationTitle: "الإكليل",
+    hallLocationTitle: "حفل الزفاف",
     openMap: "فتح اللوكيشن",
     googleMaps: "خرائط Google",
     countKicker: "موعدنا يقترب",
@@ -117,12 +117,28 @@ function createHeart(){
 }
 
 function openInvitation(){
-  document.body.classList.remove("intro-active");
-  $("#introScreen").classList.add("hidden");
+  // 1. Instantly unhide the app structure layout wrapper
   $("#app").classList.remove("hidden");
+  
+  // 2. Trigger the smooth fade-out animation on the intro screen overlay
+  $("#introScreen").classList.add("fade-out");
+  
+  // 3. Immediately reset scroll view position safely
   window.scrollTo(0, 0);
-  revealSections();
+  
+  // 4. Slight delay (200ms) to let the overlay start fading out before cleanly fading in the invitation data
+  setTimeout(() => {
+    $("#app").classList.add("activated");
+    revealSections();
+  }, 200);
+
+  // 5. Clean up body scrolling states once everything finishes animating
+  setTimeout(() => {
+    document.body.classList.remove("intro-active");
+  }, 1500); 
 }
+
+
 
 function revealSections(){
   const trigger = window.innerHeight * .9;

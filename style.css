@@ -82,6 +82,8 @@ a {
     }
 }
 
+/* Leave your original .hidden class alone. Add this to the bottom of the file: */
+
 .intro-screen {
     position: fixed;
     inset: 0;
@@ -89,9 +91,38 @@ a {
     display: grid;
     place-items: center;
     min-height: 100svh;
-    padding: max(20px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
     background: radial-gradient(circle at 50% 25%, #fdfbf7 0%, #eee6d8 43%, #e0d4c1 100%);
+    
+    /* This prepares the screen for the smooth transition */
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+    opacity: 1;
+    visibility: visible;
 }
+
+/* This is the class that will smoothly fade out the intro overlay */
+/* Keep your original .hidden { display: none !important; } intact */
+
+/* New specific class to smoothly fade out the overlay */
+.fade-out {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+/* Make sure all primary page content starts hidden and transitions smoothly */
+#app .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.3s ease, transform 1.3s ease;
+}
+
+/* This class triggers the smooth entry of your main invitation content */
+#app.activated .section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .intro-card {
     position: relative;
@@ -216,6 +247,7 @@ a {
     font-family: var(--serif);
     font-weight: 600;
     line-height: 1;
+    color: #8c6a29 !important;
 }
 
 .intro-names span {
