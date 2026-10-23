@@ -737,3 +737,10 @@ html[lang="en"] .announce, html[lang="en"] .arabic-event, html[lang="en"] .card-
         letter-spacing: 0.08em;
     }
 }
+html[lang="ar"] .final-title {
+    font-family: var(--arabic) !important;
+    font-weight: 700;
+}
+html[lang="ar"] .final-sub {
+    font-family: var(--arabic) !important;
+}

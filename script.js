@@ -38,7 +38,10 @@ const TRANSLATIONS = {
     seconds: "ثانية",
     calendarTitle: "نوفمبر ٢٠٢٦",
     addCalendar: "أضف إلى التقويم",
-    copied: "تم نسخ رابط الدعوة"
+    copied: "تم نسخ رابط الدعوة",
+    finalThanksUpper: "شكرًا لكم",
+    finalTitle: "بكل الحب ",
+    finalSub: "ننتظركم بكل حب لمشاركتنا فرحتنا  .",
   },
   en: {
     verse: "“AND THE TWO SHALL BECOME ONE FLESH.”",
@@ -70,7 +73,10 @@ const TRANSLATIONS = {
     seconds: "SECONDS",
     calendarTitle: "NOVEMBER 2026",
     addCalendar: "ADD TO CALENDAR",
-    copied: "INVITATION LINK COPIED"
+    copied: "INVITATION LINK COPIED",
+    finalThanksUpper: "THANK YOU",
+    finalTitle: "With love and gratitude",
+    finalSub: "We cannot wait to share this special day with you.",
   }
 };
 
